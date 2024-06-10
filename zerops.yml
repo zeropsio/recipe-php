@@ -1,0 +1,55 @@
+zerops:
+  - setup: apacheapi
+    build:
+      base:
+        - php@8.3
+      ports:
+        - port: 80
+          httpSupport: true
+      buildCommands:
+        - |
+          cd src
+          composer install --optimize-autoloader --no-dev
+      deploy:
+        - ./src/~/index.php
+        - ./src/~/.htaccess
+        - ./src/~/vendor
+    run:
+      base: php-apache@8.3
+      envVariables:
+        DB_NAME: db
+        DB_HOST: db
+        DB_PORT: 5432
+        DB_USER: db
+        DB_PASS: ${db_password}
+      healthCheck:
+        httpGet:
+          port: 80
+          path: /status
+
+  - setup: nginxapi
+    build:
+      base:
+        - php@8.3
+      ports:
+        - port: 80
+          httpSupport: true
+      buildCommands:
+        - |
+          cd src
+          composer install --optimize-autoloader --no-dev
+      deploy:
+        - ./src/~/index.php
+        - ./src/~/vendor
+    run:
+      base: php-nginx@8.3
+      envVariables:
+        DB_NAME: db
+        DB_HOST: db
+        DB_PORT: 5432
+        DB_USER: db
+        DB_PASS: ${db_password}
+      healthCheck:
+        httpGet:
+          port: 80
+          path: /status

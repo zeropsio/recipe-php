@@ -1,0 +1,22 @@
+project:
+  name: recipe-php
+  tags:
+    - zerops-recipe
+
+services:
+  - hostname: apacheapi
+    type: php-apache@8.3
+    enableSubdomainAccess: true
+    buildFromGit: https://github.com/krls2020/recipe-php
+
+  - hostname: nginxapi
+    type: php-apache@8.3
+    enableSubdomainAccess: true
+    buildFromGit: https://github.com/krls2020/recipe-php
+
+  - hostname: db
+    type: postgresql@16
+    mode: NON_HA
+    priority: 1
+
+
