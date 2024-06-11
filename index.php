@@ -4,6 +4,8 @@ require 'vendor/autoload.php';
 use Dotenv\Dotenv;
 use Ramsey\Uuid\Uuid;
 
+header('Content-Type: application/json');
+
 if (file_exists(__DIR__ . '/.env')) {
     $dotenv = Dotenv::createImmutable(__DIR__);
     $dotenv->load();
@@ -12,7 +14,6 @@ if (file_exists(__DIR__ . '/.env')) {
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 if ($path == '/status') {
-    header('Content-Type: application/json');
     echo json_encode(['status' => 'UP']);
     exit;
 } elseif ($path != '/') {
@@ -39,23 +40,13 @@ pg_query($dbconn, "INSERT INTO entries (data) VALUES ('$data');");
 $result = pg_query($dbconn, "SELECT COUNT(*) AS count FROM entries;");
 $row = pg_fetch_assoc($result);
 
-echo <<<EOT
-<pre>
-This is a simple, basic PHP application running on <a href="https://zerops.io/">Zerops.io</a>,
-serving the same content whether deployed on Apache or Nginx service.  
-Each request adds an entry to the PostgreSQL database and returns a count.  
-
-See the source repository (<a href="https://github.com/zeropsio/recipe-php">https://github.com/zeropsio/recipe-php</a>) for more information.
-
-
-Entry added successfully with random data: $data. Total count: {$row['count']}
-
-</pre>
-EOT;
+echo json_encode([
+    "message" => "This is a simple, basic PHP application running on Zerops.io, serving the same content whether deployed on Apache or Nginx service. Each request adds an entry to the PostgreSQL database and returns a count. See the source repository (https://github.com/zeropsio/recipe-php) for more information.",
+    "newEntry" => $data,
+    "count" => $row['count']
+]);
 
 pg_close($dbconn);
-
-phpinfo();
 
 error_log("error_log    Entry added successfully with random data:" . $data);
 
