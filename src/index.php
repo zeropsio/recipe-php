@@ -55,10 +55,14 @@ EOT;
 
 pg_close($dbconn);
 
-syslog(LOG_INFO, "LOG_INFO  Entry added successfully with random data:" . $data);
-syslog(LOG_NOTICE, "LOG_NOTICE  Entry added successfully with random data:" . $data);
-syslog(LOG_DEBUG	, "LOG_DEBUG    Entry added successfully with random data:" . $data);
+phpinfo();
 
 error_log("error_log    Entry added successfully with random data:" . $data);
 
-phpinfo();
+syslog(LOG_INFO, "LOG_INFO  Entry added successfully with random data:" . $data);
+syslog(LOG_NOTICE, "LOG_NOTICE  Entry added successfully with random data:" . $data);
+syslog(LOG_DEBUG, "LOG_DEBUG    Entry added successfully with random data:" . $data);
+
+trigger_error("trigger_error - A user requested a resource.", E_USER_NOTICE);
+trigger_error("trigger_error - The image failed to load!", E_USER_WARNING);
+trigger_error("trigger_error - User requested a profile that doesn't exist!", E_USER_ERROR);
