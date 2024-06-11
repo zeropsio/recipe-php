@@ -10,7 +10,7 @@ services:
     buildFromGit: https://github.com/zeropsio/recipe-php
 
   - hostname: nginxapi
-    type: php-apache@8.3
+    type: php-nginx@8.3
     enableSubdomainAccess: true
     buildFromGit: https://github.com/zeropsio/recipe-php
 
