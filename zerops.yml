@@ -4,13 +4,11 @@ zerops:
       base:
         - php@8.3
       buildCommands:
-        - |
-          cd src
-          composer install --optimize-autoloader --no-dev
+        - composer install --optimize-autoloader --no-dev
       deploy:
-        - ./src/~/index.php
-        - ./src/~/.htaccess
-        - ./src/~/vendor
+        - ./index.php
+        - ./.htaccess
+        - ./vendor
     run:
       base: php-apache@8.3
       envVariables:
@@ -29,12 +27,10 @@ zerops:
       base:
         - php@8.3
       buildCommands:
-        - |
-          cd src
-          composer install --optimize-autoloader --no-dev
+        - composer install --optimize-autoloader --no-dev
       deploy:
-        - ./src/~/index.php
-        - ./src/~/vendor
+        - ./index.php
+        - ./vendor
     run:
       base: php-nginx@8.3
       envVariables:
