@@ -3,9 +3,6 @@ zerops:
     build:
       base:
         - php@8.3
-      ports:
-        - port: 80
-          httpSupport: true
       buildCommands:
         - |
           cd src
@@ -31,9 +28,6 @@ zerops:
     build:
       base:
         - php@8.3
-      ports:
-        - port: 80
-          httpSupport: true
       buildCommands:
         - |
           cd src
