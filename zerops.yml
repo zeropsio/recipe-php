@@ -5,7 +5,7 @@ zerops:
         - php@8.3
       buildCommands:
         - composer install --optimize-autoloader --no-dev
-      deploy:
+      deployFiles:
         - ./index.php
         - ./.htaccess
         - ./vendor
@@ -28,7 +28,7 @@ zerops:
         - php@8.3
       buildCommands:
         - composer install --optimize-autoloader --no-dev
-      deploy:
+      deployFiles:
         - ./index.php
         - ./vendor
     run:
