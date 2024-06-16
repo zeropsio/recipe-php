@@ -1,5 +1,7 @@
 # Zerops x PHP
-This is the most bare-bones example of PHP app running on Zerops.
+This is the most bare-bones example of PHP app running on [Zerops](https://zerops.io).
+
+<br />
 
 ![php](https://github.com/zeropsio/recipe-shared-assets/blob/main/covers/cover-php.png)
 
@@ -32,3 +34,8 @@ Further things to think about when running more complex, highly available PHP pr
 - Containers are volatile - use Zerops object storage to store your files
 - Use Zerops Redis (KeyDB) for caching, storing sessions and pub/sub messaging
 - Use more advanced logging lib, such as [Monolog](https://github.com/Seldaek/monolog), [Analog](https://github.com/jbroadway/analog) or [KLogger](https://github.com/katzgrau/KLogger)
+  
+<br/>
+<br/>
+
+Need help setting your project up? Join [Zerops Discord community](https://discord.com/invite/WDvCZ54).
