@@ -1,7 +1,7 @@
 # Zerops x PHP
 This is the most bare-bones example of PHP app running on [Zerops](https://zerops.io) — as few libraries as possible, just a simple endpoint with connnect, read and write to a Zerops PostgreSQL database.
 
-![php](https://github.com/zeropsio/recipe-shared-assets/blob/main/covers/cover-php.png)
+![php](https://github.com/zeropsio/recipe-shared-assets/blob/main/covers/svg/cover-php.svg)
 
 <br />
 
