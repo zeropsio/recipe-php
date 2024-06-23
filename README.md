@@ -13,7 +13,7 @@ You can either click the deploy button to deploy directly on Zerops, or manually
 <br/>
 
 ## Recipe features
-- **PHP 8.3** on **Zerops Apache and Nginx** service
+- **PHP 8.3** app running in a load balanced **Zerops Apache and Nginx** service
 - Zerops **PostgreSQL 16** service as database
 - Healthcheck setup example
 - Utilization of Zerops' built-in **environment variables** system
