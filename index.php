@@ -14,6 +14,11 @@ if ($path == '/status') {
     exit;
 }
 
+// Proceed only if the path is the root index ('/')
+if ($path != '/') {
+    exit;
+}
+
 
 if (file_exists(__DIR__ . '/.env')) {
     $dotenv = Dotenv::createImmutable(__DIR__);
